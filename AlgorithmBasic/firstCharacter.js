@@ -1,11 +1,11 @@
 function firstCharacter(str) {
   // TODO: 여기에 코드를 작성합니다.
   let splitStr = str.split(" ");
-  let result = [];
+  let result = "";
   for (let character of splitStr) {
-    result.push(character[0]);
+    result = result + character[0];
   }
-  return result.join("");
+  return result;
 }
 
 let output = firstCharacter(
