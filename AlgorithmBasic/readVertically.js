@@ -1,19 +1,18 @@
 let input = ["YCDt", "oao", "unI"];
 
 function readVertically(arr) {
-  let eachLength = arr.map((x) => x.length);
-  let maxNum = Math.max(...eachLength);
-  let result = [];
+  let checkLength = arr.map((el) => el.length);
+  let maxNum = Math.max(...checkLength);
+  let result = "";
   for (let i = 0; i < maxNum; i++) {
     for (let j = 0; j < arr.length; j++) {
       if (!arr[j][i]) {
         continue;
-      } else {
-        result.push(arr[j][i]);
       }
+      result = result + arr[j][i];
     }
   }
-  return result.join("");
+  return result;
 }
 
 let output = readVertically(input);
