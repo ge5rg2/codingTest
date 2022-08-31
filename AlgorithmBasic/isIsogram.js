@@ -7,11 +7,11 @@ let output = isIsogram("moOse");
  * 해당 변수 배열에서 arr[i]가 있는지 찾고 있다면 즉시 false 반환
  * 반복문 이후 return true
  */
+
 function isIsogram(str) {
-  let arr = [...str.toLowerCase()];
-  for (let i = 0; i < arr.length; i++) {
-    let result = arr.reduce((acc, cur) => (cur == arr[i] ? acc + 1 : acc), 0);
-    if (result > 1) {
+  let strLow = str.toLowerCase();
+  for (let i = 0; i < strLow.length; i++) {
+    if (strLow.indexOf(strLow[i], i + 1) != -1) {
       return false;
     }
   }
