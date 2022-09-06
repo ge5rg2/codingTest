@@ -1,14 +1,18 @@
 function lessThan100(number) {
-  return number < 100;
+  return typeof number == "number" && number < 100;
 }
 
 function getElementsLessThan100AtProperty(obj, property) {
-  // TODO: 여기에 코드를 작성합니다.
+  /** 공략
+   * obj에 prop을 넣어서 해당 값이 있는지 확인
+   * if문으로 없거나, 해당 값이 배열이 아닐 경우 빈배열을 return
+   * filter로 해당 el이 숫자거나 lessthan100 함수에 통과된 el로 구성된 배열만 리턴
+   */
   let newArr = obj[property];
-  if (newArr == undefined || typeof newArr !== "string") {
-    return [];
+  if (Array.isArray(newArr)) {
+    return newArr.filter(lessThan100);
   }
-  return newArr.filter((el) => typeof el == "number" && lessThan100(el));
+  return [];
 }
 
 const obj = {
