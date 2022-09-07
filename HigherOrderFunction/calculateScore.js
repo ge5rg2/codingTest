@@ -2,10 +2,13 @@
 
 function calculateScore(records, value) {
   // TODO: Your code here!
-  let scoreArr = records
-    .filter((el) => el.animal == value)
-    .map((el) => el.score);
-  return scoreArr.length == 0 ? 0 : scoreArr.reduce((acc, cur) => acc + cur);
+  return records.reduce((acc, cur) => {
+    if (cur.animal == value) {
+      return acc + cur.score;
+    } else {
+      return acc;
+    }
+  }, 0);
 }
 
 const records = [
